@@ -43,5 +43,29 @@ namespace lab3
 
             return components;
         }
+
+        private int GetVertexDegree(int vertex)
+        {
+            return _adjacencyLists[vertex].Count;
+        }
+
+        private bool IsVertexDegreeEven(int vertex)
+        {
+            return GetVertexDegree(vertex) % 2 == 0;
+        }
+
+        public bool IsEuler()
+        {
+            var areVerticesEven = true;
+            for (var i = 0; i < _adjacencyLists.Length; i++)
+            {
+                if (!IsVertexDegreeEven(i))
+                {
+                    areVerticesEven = false;
+                    break;
+                }
+            }
+            return FindComponents().Count == 1 && areVerticesEven;
+        }
     }
 }
