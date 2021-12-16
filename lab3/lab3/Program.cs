@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace lab3
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             // Task1();
-            Task3();
+            // Task2();
+            // Task3();
         }
 
         private static void Task1()
         {
+            Console.WriteLine("Task 1");
             Console.WriteLine("Graph 1");
             var graphList = new[]
             {
@@ -53,8 +56,28 @@ namespace lab3
             Console.WriteLine("Is graph euler: " + eulerGraph.IsEuler());
         }
 
+        private static void Task2()
+        {
+            Console.WriteLine("\n\nTask 2");
+            const int noWay = 99999;
+            
+            var graph = new [,]
+            {
+                {0,     noWay, noWay, noWay, noWay, 3,     7    },
+                {noWay, 0,     3,     1,     noWay, noWay, noWay},
+                {noWay, 6,     0,     noWay, noWay, noWay, noWay},
+                {noWay, noWay, 4,     0,     noWay, noWay, 3    },
+                {noWay, noWay, noWay, 1,     0,     1,     noWay},
+                {5,     noWay, noWay, noWay, noWay, 0,     noWay},
+                {6,     9,     noWay, 11,    noWay, noWay, 0    }
+            };
+                
+            ShortestPath.FloydWarshall(graph);
+        }
+
         private static void Task3()
         {
+            Console.WriteLine("\n\nTask 3");
             // var graph = new[,]
             // {
             //     {-1, 2, 4, 4, 4, 6, 6},
@@ -81,6 +104,11 @@ namespace lab3
             };
             
             TSP.TravellingSalesmanProblem(graph);
+        }
+
+        private static void Task4()
+        {
+            
         }
     }
 }

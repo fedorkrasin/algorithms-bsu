@@ -33,7 +33,7 @@ namespace lab3
                 
                 index++;
             }
-
+            
             Console.WriteLine("Shortest route is " + string.Join("-", lists[minWeightIndex].ToArray()) +
                               $", weight is {minWeight}");
         }
