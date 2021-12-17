@@ -12,6 +12,7 @@ namespace lab3
             // Task1();
             // Task2();
             // Task3();
+            Task4();
         }
 
         private static void Task1()
@@ -108,7 +109,22 @@ namespace lab3
 
         private static void Task4()
         {
-            
+            Console.WriteLine("\n\nTask 4");
+            var employeeSkills = new[,]
+            {
+                {0, 1, 3, 1, 2},
+                {0, 2, 2, 2, 0},
+                {1, 2, 0, 1, 0},
+                {1, 3, 2, 0, 0},
+                {2, 0, 0, 3, 3}
+            };
+
+            var workersList = OptimalAssignmentSolver.AppointEmployee(employeeSkills);
+
+            for (var i = 0; i < workersList.Length; i++)
+            {
+                Console.WriteLine($"Best employee for work #{i} is worker #{workersList[i]}");
+            }
         }
     }
 }
